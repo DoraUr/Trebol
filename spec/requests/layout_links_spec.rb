@@ -22,4 +22,23 @@ describe "LayoutLinks" do
     response.should have_selector('title', :content => "Help")
   end
   
+  it "should have a signup page at '/signup'" do
+    get '/signup'
+    response.should have_selector('title', :content => "Sign up")
+  end
+  
+  it "should have the right links on the layout" do
+    visit root_path
+    response.should have_selector('title', :content => "Home")
+    click_link "Acerca de"
+    response.should have_selector('title', :content => "About")
+    click_link "Contacto"
+    response.should have_selector('title', :content => "Contact")
+    click_link "Inicio"
+    response.should have_selector('title', :content => "Home")
+    click_link "Registrarse!"
+    response.should have_selector('title', :content => "Sign up")
+    response.should have_selector('a[href="/"]>img')
+  end
+  
 end
