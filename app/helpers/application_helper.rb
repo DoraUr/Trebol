@@ -11,7 +11,7 @@ module ApplicationHelper
   end
   
   def logo
-    image_tag("trebol.jpg", :alt => "Grupo Tress", :class => "round")
+    image_tag("trebol.png", :alt => "Grupo Tress", :class => "round")
   end
   
 end
